@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  express-app:
+    build: ./express-app
+    command: sh -c "npm install && npm start"
+    links:
+      - db
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+    ports:
+      - '3000:3000'
+    working_dir: /root/express-app
+    volumes:
+      - ./express-app:/root/express-app:cached
+  client-website:
+    build: ./client-website
+    command: sh -c "npm install && npm start"
+    environment:
+      - NODE_ENV=development
+      - PORT=4200
+    ports:
+      - '4200:4200'
+    working_dir: /root/client-website
+  db:
+    build: ./data-layer
+    environment:
+      - POSTGRES_DB=appdb
+    ports:
+      - '5432:5432'
+

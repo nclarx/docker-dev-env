@@ -1,0 +1,5 @@
+FROM postgres:latest
+
+# WORKDIR /root
+# ADD . /root
+

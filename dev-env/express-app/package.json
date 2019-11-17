@@ -1,0 +1,26 @@
+{
+  "name": "express-sqlise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "mysql": "^2.17.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.19.2",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4",
+    "sequelize-cli": "^5.5.1"
+  }
+}
