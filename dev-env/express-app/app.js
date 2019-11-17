@@ -4,7 +4,7 @@ const app = express() // creates an instance of Express
 const port = 3000 // set the port on which the app will listen for requests
 
 // Importing your modules
-const { findAll, findFirst, rawQuery } = require('./data')
+const { findAll } = require('./data')
 
 console.log(findAll)
 app.get('/', (req, res) => {

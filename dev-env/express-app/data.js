@@ -29,27 +29,25 @@ function seedUser() {
     }
 }
 
+class User extends Model { }
+User.init({
+    firstName: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    lastName: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
+}, {
+    sequelize: db,
+    modelName: 'user',
+    timestamps: true
+})
+
 db.authenticate()
     .then(() => {
         console.log('Connected!')
-
-
-        class User extends Model { }
-        User.init({
-            firstName: {
-                type: Sequelize.STRING,
-                allowNull: false
-            },
-            lastName: {
-                type: Sequelize.STRING,
-                allowNull: false
-            }
-        }, {
-            sequelize: db,
-            modelName: 'user',
-            timestamps: true
-        })
-
 
         // class Role extends Model { }
         // Role.init({
@@ -108,9 +106,10 @@ db.authenticate()
             console.log('user')
             User.create(seedUser())
         }
-        db.sync({ force: true }).then((data) => {
-            
-        })
+        // db.sync({ force: true })
+        //     .then((data) => {
+
+        //})
 
     })
     .catch((error) => {

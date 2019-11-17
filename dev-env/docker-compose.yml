@@ -14,14 +14,22 @@ services:
     working_dir: /root/express-app
     volumes:
       - ./express-app:/root/express-app:cached
+  angular-client:
+    build: ./angular-client
+    command: sh -c "npm run start"
+    ports:
+      - '4201:4200'
+    working_dir: /root/angular-client
+    volumes:
+      - ./angular-client:/root/angular-client:cached
   client-website:
     build: ./client-website
     command: sh -c "npm install && npm start"
     environment:
       - NODE_ENV=development
-      - PORT=4200
+      - PORT=4000
     ports:
-      - '4200:4200'
+      - '4000:4000'
     working_dir: /root/client-website
   db:
     build: ./data-layer

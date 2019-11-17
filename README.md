@@ -19,3 +19,15 @@ If you are thinking about using Docker in your development workflow the structur
 
 
 
+## Useful Commands
+
+View running containers to see their names and addresses:
+
+```shell
+docker ps
+```
+
+Follow logs for one of your services:
+```shell
+docker logs -f -t --details dev-env-express-app
+```
